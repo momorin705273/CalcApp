@@ -28,10 +28,19 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         } else if (v.id == R.id.button4) {
             textView2.text = "÷"
         }else if (v.id == R.id.button5) {
-            intent.putExtra("VALUE1", editText1.text.toString().toDoubleOrNull())
-            intent.putExtra("VALUE2", editText2.text.toString().toDoubleOrNull())
-            intent.putExtra("VALUE3", textView2.text)
-            startActivity(intent)
+            if(editText1.text.toString().equals("")||editText2.text.toString().equals("")) {
+                error.text = "数字を入力してください。"
+            }else if(textView2.text.equals(" ")) {
+            error.text = "演算子のボタンを押してください。"
+            }else if(editText2.text.toString().toDouble()==0.0 && textView2.text.equals("÷")){
+                error.text="「0」で割ることは出来ません。"
+            }else{
+                val intent = Intent(this, CalcAnswer::class.java)
+                intent.putExtra("VALUE1", editText1.text.toString().toDouble())
+                intent.putExtra("VALUE2", editText2.text.toString().toDouble())
+                intent.putExtra("VALUE3", textView2.text)
+                startActivity(intent)
+            }
         }
     }
 }
