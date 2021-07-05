@@ -33,6 +33,7 @@
         <EditText
             android:id="@+id/editText2"
             android:layout_width="175dp"
+            android:inputType="numberDecimal"
             android:layout_height="wrap_content" />
     </LinearLayout>
     <LinearLayout
