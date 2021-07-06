@@ -10,17 +10,6 @@ class CalcAnswer : AppCompatActivity() {
         setContentView(R.layout.activity_calc_answer)
 
         val value1 = intent.getDoubleExtra("VALUE1", 0.00)
-        val value2 = intent.getDoubleExtra("VALUE2", 0.00)
-        val value3 = intent.getStringExtra("VALUE3")
-
-        if(value3=="+") {
-            textView2.text = "${value1 + value2}"
-        }else if(value3=="-") {
-            textView2.text = "${value1 - value2}"
-        }else if(value3=="×") {
-            textView2.text = "${value1 * value2}"
-        }else if(value3=="÷") {
-            textView2.text = "${value1 / value2}"
-        }
+            textView2.text = "${value1}"
     }
 }
